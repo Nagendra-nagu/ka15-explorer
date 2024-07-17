@@ -8,7 +8,7 @@ default: &default
 
 production:
   <<: *default
-  database: ka-explorer_production
+  database: ka15explorerproduction
 
 staging:
   <<: *default
