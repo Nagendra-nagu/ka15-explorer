@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= Rails.application.credentials.dig(Rails.env.to_sym, :postgresql, :username) %>
+  password: <%= Rails.application.credentials.dig(Rails.env.to_sym, :postgresql, :password) %>
+  host: <%= Rails.application.credentials.dig(Rails.env.to_sym, :postgresql, :host) %>
+
+production:
+  <<: *default
+  database: ka-explorer_production
+
+staging:
+  <<: *default
+  database: ka-explorer_staging
+
+development:
+  <<: *default
+  database: ka-explorer_develop
+
+test:
+  <<: *default
+  database: ka-explorer_test
