@@ -3,7 +3,7 @@
 server '43.204.180.85', user: 'ubuntu', roles: %w{app db web}
 
 set :branch, :master
-set :rvm_ruby_version, '3.1.0' # Ensure this matches your installed Ruby version
+set :rvm_ruby_version, '3.3.4' # Ensure this matches your installed Ruby version
 
 # Specify SSH options
 set :ssh_options, {
