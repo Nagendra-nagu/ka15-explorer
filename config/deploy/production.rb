@@ -1,6 +1,6 @@
 # config/deploy/production.rb
 
-server '43.204.180.85', user: 'ubuntu', roles: %w{app db web}
+server '13.126.234.81', user: 'ubuntu', roles: %w{app db web}
 
 set :branch, :master
 set :rvm_ruby_version, '3.3.4' # Ensure this matches your installed Ruby version
