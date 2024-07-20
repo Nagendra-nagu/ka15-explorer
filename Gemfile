@@ -70,11 +70,15 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 
+  # for deployement
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
   gem 'capistrano3-puma'
+
+  # for debuging
+  gem 'byebug', '~> 11.1', '>= 11.1.3'
 end
 
 group :test do

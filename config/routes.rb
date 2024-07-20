@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
+  # resources :users, only: [:show] # This line sets up RESTful routes for the Users controller, allowing you to view user profiles.
+  
+  # Root path of the application
   root to: 'home#index' # Replace 'home#index' with your desired root path
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  # Health check route for monitoring
   get "up" => "rails/health#show", as: :rails_health_check
-
-  # Defines the root path route ("/")
-  # root "posts#index"
 end
