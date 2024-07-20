@@ -1,4 +1,5 @@
-# config/deploy/production.rb
+set :stage, :production
+set :rails_env, 'production'
 
 server '13.126.234.81', user: 'ubuntu', roles: %w{app db web}
 
