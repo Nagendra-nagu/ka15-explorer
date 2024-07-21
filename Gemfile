@@ -50,7 +50,10 @@ gem 'devise', '~> 4.8.0'
 #postgresql
 gem 'pg', '~> 1.3.0'
 
+# sheduling jobs
 gem 'whenever', require: false
+
+gem 'webpacker', '~> 5.4'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"

@@ -1,0 +1,27 @@
+<nav>
+  <ul class="nav-container">
+    <div class="nav-item-container">
+      <div class="logo">
+        <h3>LOGO</h3>
+      </div>
+      <div class="nav-block">
+        <%= nav_link_to 'Home', root_path %>
+        <%= nav_link_to 'About', about_path %>
+      </div>
+    </div>
+
+    <div class="sigin-out-block">
+
+    <button id="showModalBtn" class = "custom_button custom_success_btn sigin-out-block-btn" data-title="Add Remark" data-url="<%= show_model_box_path(modal_title: 'Add Remark', modal_content: 'Test') %>">
+      Show Modal
+    </button>
+
+      <% if user_signed_in? %>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'custom_button custom_danger_btn sigin-out-block-btn' %>
+      <% else %>
+        <%= link_to 'Log in', new_user_session_path, class: 'custom_button custom_success_btn sigin-out-block-btn' %>
+        <%= link_to 'Sign up', new_user_registration_path, class: 'custom_button custom_info_btn sigin-out-block-btn' %>
+      <% end %>
+    </div>
+  </ul>
+</nav>
