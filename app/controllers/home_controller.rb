@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     def show_model_box
         @modal_title = params[:modal_title]
         @modal_content = params[:modal_content]
-        render partial: "layouts/show_modal"
+        render partial: "layouts/show_modal", locals: { modal_title: @modal_title, modal_content: @modal_content } 
     end
 end
   

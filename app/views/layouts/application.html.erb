@@ -6,7 +6,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'modal', 'data-turbo-track': 'reload' %>
     <% stylesheet_name = "#{params[:controller]}.css" %>
     <%= stylesheet_link_tag stylesheet_name, media: 'all', 'data-turbo-track': 'reload' if stylesheet_exists?(stylesheet_name) %>
     <%= stylesheet_link_tag 'header', media: 'all', 'data-turbo-track': 'reload' %>
@@ -14,7 +13,8 @@
   </head>
   <body>
     <%= render 'layouts/partials/header' %>
-    <div class = "main-body-wrapper">
+    <%= turbo_frame_tag "globalModal" %>
+    <div class="main-body-wrapper">
       <%= yield %>
     </div>
     <%= render 'layouts/partials/footer' %>
