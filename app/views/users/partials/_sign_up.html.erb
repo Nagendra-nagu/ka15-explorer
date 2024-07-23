@@ -1,0 +1,35 @@
+<%
+    resource = User.new
+    resource_name = :user
+%>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name),  html: { class: 'new_user d-flex justify-content-center flex-column align-items-center' }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="kae-form-group">
+    <div class="field form-group">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field form-group">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field form-group">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="actions form-group text-center">
+      <%= f.submit "Sign up", class: "btn btn-primary"%>
+    </div>
+  </div>
+<% end %>
+
+
+<div class="d-flex justify-content-center">
+  <%= link_to "Log in", new_user_session_path, class: 'btn btn-link' %>
+</div>

@@ -5,8 +5,13 @@ Rails.application.routes.draw do
   # Root path of the application
   root to: 'posts#index' # Replace 'home#index' with your desired root path
   resources :posts
+
+  namespace :users do
+    get 'login_model_box', to: 'users#login_model_box', as: :login_model_box
+    get 'sign_up_model_box', to: 'users#sign_up_model_box', as: :sign_up_model_box
+  end
+
   get 'about', to: 'home#about'
-  get 'show_model_box', to: 'home#show_model_box'
 
   # Health check route for monitoring
   get "up" => "rails/health#show", as: :rails_health_check

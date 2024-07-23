@@ -1,13 +1,7 @@
 # app/controllers/home_controller.rb
 class HomeController < ApplicationController
-    before_action :authenticate_user!, except: [:about, :show_model_box]
+    before_action :authenticate_user!, except: [:about]
     def about
-    end
-
-
-    def show_model_box
-        @modal_title = params[:modal_title]
-        @modal_content = params[:modal_content]
     end
 end
   

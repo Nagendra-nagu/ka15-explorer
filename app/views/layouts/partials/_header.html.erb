@@ -11,13 +11,11 @@
     </div>
 
     <div class="sigin-out-block">
-      <%= link_to 'Show Modal', show_model_box_path(modal_title: 'Add Remark', modal_content: '<p>This is some text content for the modal.</p>'), remote: true, id: 'showModalBtn', class: 'custom_button custom_success_btn sigin-out-block-btn' %>
-
       <% if user_signed_in? %>
         <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'custom_button custom_danger_btn sigin-out-block-btn' %>
       <% else %>
-        <%= link_to 'Log in', new_user_session_path, class: 'custom_button custom_success_btn sigin-out-block-btn' %>
-        <%= link_to 'Sign up', new_user_registration_path, class: 'custom_button custom_info_btn sigin-out-block-btn' %>
+        <%= link_to 'Log in', users_login_model_box_path, remote: true, id: 'showModalBtn', class: 'custom_button custom_success_btn sigin-out-block-btn' %>
+        <%= link_to 'Sign up', users_sign_up_model_box_path, remote: true, id: 'showModalBtn', class: 'custom_button custom_info_btn sigin-out-block-btn' %>
       <% end %>
     </div>
   </ul>
