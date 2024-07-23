@@ -5,3 +5,4 @@ import "controllers" // This should be pointing to your Stimulus controllers if 
 // Initialize Rails UJS and Turbo
 Rails.start()
 Turbo.start()
+// import 'bootstrap'

@@ -9,6 +9,7 @@
     <% stylesheet_name = "#{params[:controller]}.css" %>
     <%= stylesheet_link_tag stylesheet_name, media: 'all', 'data-turbo-track': 'reload' if stylesheet_exists?(stylesheet_name) %>
     <%= stylesheet_link_tag 'header', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' %>
     <%= javascript_importmap_tags %>
   </head>
   <body>
@@ -17,6 +18,9 @@
     <div class="main-body-wrapper">
       <%= yield %>
     </div>
+    <div id="modalContainer"></div>
+    <%= javascript_include_tag 'https://code.jquery.com/jquery-3.6.0.min.js' %>
+    <%= javascript_include_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js' %>
     <%= render 'layouts/partials/footer' %>
   </body>
 </html>

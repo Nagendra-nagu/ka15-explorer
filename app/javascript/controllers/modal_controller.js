@@ -1,6 +1,6 @@
-console.log("sbjdhsabdhajsbi")
+// app/javascript/controllers/modal_controller.js
+
 import { Controller } from "stimulus"
-import { fetch } from "@rails/request.js"
 
 export default class extends Controller {
   static targets = ["modal"]
@@ -13,9 +13,16 @@ export default class extends Controller {
   async showModal(event) {
     event.preventDefault()
     const url = event.currentTarget.getAttribute('data-url')
-    const response = await fetch(url, { responseKind: "turbo-stream" })
+    const response = await fetch(url, {
+      headers: {
+        Accept: "text/html"
+      }
+    })
 
     if (response.ok) {
+      const html = await response.text()
+      const modalContent = document.getElementById('globalModalContent')
+      modalContent.innerHTML = html
       this.modal.show()
     } else {
       console.error("Failed to load modal content")

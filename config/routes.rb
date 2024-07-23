@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root to: 'posts#index' # Replace 'home#index' with your desired root path
   resources :posts
   get 'about', to: 'home#about'
-  get 'show_model_box', to: 'index#show_model_box'
+  get 'show_model_box', to: 'home#show_model_box'
 
   # Health check route for monitoring
   get "up" => "rails/health#show", as: :rails_health_check

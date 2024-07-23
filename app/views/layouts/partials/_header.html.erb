@@ -11,10 +11,7 @@
     </div>
 
     <div class="sigin-out-block">
-    <a id="showModalBtn" class="custom_button custom_success_btn sigin-out-block-btn" href="#" data-controller="modal" data-action="click->modal#showModal" data-url="<%= show_model_box_path(modal_title: 'Add Remark', modal_content: '<p>This is some text content for the modal.</p>') %>">
-      Show Modal
-    </a>
-
+      <%= link_to 'Show Modal', show_model_box_path(modal_title: 'Add Remark', modal_content: '<p>This is some text content for the modal.</p>'), remote: true, id: 'showModalBtn', class: 'custom_button custom_success_btn sigin-out-block-btn' %>
 
       <% if user_signed_in? %>
         <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'custom_button custom_danger_btn sigin-out-block-btn' %>
