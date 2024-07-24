@@ -5,6 +5,7 @@
     <title>KA15 Explorer</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <% stylesheet_name = "#{params[:controller]}.css" %>
     <%= stylesheet_link_tag stylesheet_name, media: 'all', 'data-turbo-track': 'reload' if stylesheet_exists?(stylesheet_name) %>

@@ -1,22 +1,19 @@
-<nav>
-  <ul class="nav-container">
+<nav class="nav-container">
+    <div class="logo">
+      <h3>LOGO</h3>
+    </div>
     <div class="nav-item-container">
-      <div class="logo">
-        <h3>LOGO</h3>
-      </div>
       <div class="nav-block">
         <%= nav_link_to 'Home', root_path %>
         <%= nav_link_to 'About', about_path %>
       </div>
+      <div class="sigin-out-block">
+        <% if user_signed_in? %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'custom_button custom_danger_btn sigin-out-block-btn' %>
+        <% else %>
+          <%= link_to 'Log in', users_login_model_box_path, remote: true, id: 'showModalBtn', class: 'custom_button custom_success_btn sigin-out-block-btn' %>
+          <%= link_to 'Sign up', users_sign_up_model_box_path, remote: true, id: 'showModalBtn', class: 'custom_button custom_info_btn sigin-out-block-btn' %>
+        <% end %>
+      </div>
     </div>
-
-    <div class="sigin-out-block">
-      <% if user_signed_in? %>
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'custom_button custom_danger_btn sigin-out-block-btn' %>
-      <% else %>
-        <%= link_to 'Log in', users_login_model_box_path, remote: true, id: 'showModalBtn', class: 'custom_button custom_success_btn sigin-out-block-btn' %>
-        <%= link_to 'Sign up', users_sign_up_model_box_path, remote: true, id: 'showModalBtn', class: 'custom_button custom_info_btn sigin-out-block-btn' %>
-      <% end %>
-    </div>
-  </ul>
 </nav>

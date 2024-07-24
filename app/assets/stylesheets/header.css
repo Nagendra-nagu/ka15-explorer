@@ -13,6 +13,7 @@
     display: flex;
     justify-content: space-between;
     margin-left: 20px;
+    width: 100%;
 }
 
 .nav-block{
@@ -112,5 +113,25 @@
       right: 0;
       margin: auto;
       border-radius: 0;
+    }
+  }
+
+  /* media query */
+  @media only screen and (max-width: 992px) {
+    .nav-container{
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 0px;
+    }
+
+    .nav-item-container{
+      flex-direction: column;
+      justify-content: space-between;
+      
+    }
+    
+    .nav-block{
+      flex-direction: column;
+      justify-content: space-around;
     }
   }
