@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :users do
     get 'login_model_box', to: 'users#login_model_box', as: :login_model_box
     get 'sign_up_model_box', to: 'users#sign_up_model_box', as: :sign_up_model_box
+    get 'forgot_password_modal_box', to: 'users#forgot_password_modal_box', as: :forgot_password_modal_box
   end
 
   get 'about', to: 'home#about'

@@ -27,6 +27,6 @@
 <% end %>
 
 <div class="d-flex justify-content-center">
-  <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-link' %>
-  <%= link_to "Forgot your password?", new_user_password_path, class: 'btn btn-link' %>
+    <%= link_to 'Sign up', users_sign_up_model_box_path, remote: true, id: 'showModalBtn', class: 'btn btn-link' %>
+     <%= link_to 'Forgot your password?', users_forgot_password_modal_box_path, remote: true, id: 'showModalBtn', class: 'btn btn-link' %>
 </div>

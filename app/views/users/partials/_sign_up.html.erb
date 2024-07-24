@@ -1,8 +1,8 @@
 <%
-    resource = User.new
-    resource_name = :user
+  resource = User.new
+  resource_name = :user
 %>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name),  html: { class: 'new_user d-flex justify-content-center flex-column align-items-center' }) do |f| %>
+<%= form_for(resource, as: resource_name, url: user_registration_path, html: { class: 'new_user d-flex justify-content-center flex-column align-items-center' }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="kae-form-group">
     <div class="field form-group">
@@ -29,7 +29,6 @@
   </div>
 <% end %>
 
-
 <div class="d-flex justify-content-center">
-  <%= link_to "Log in", new_user_session_path, class: 'btn btn-link' %>
+  <%= link_to 'Log in', users_login_model_box_path, remote: true, id: 'showModalBtn', class: 'btn btn-link' %>
 </div>
