@@ -1,19 +1,41 @@
-<nav class="nav-container">
+<nav class='kae-nav-bar'>
     <div class="logo">
-      <h3>LOGO</h3>
+        <img src="" alt="Logo Image">
     </div>
-    <div class="nav-item-container">
-      <div class="nav-block">
-        <%= nav_link_to 'Home', root_path %>
-        <%= nav_link_to 'About', about_path %>
-      </div>
-      <div class="sigin-out-block">
-        <% if user_signed_in? %>
-          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'custom_button custom_danger_btn sigin-out-block-btn' %>
-        <% else %>
-          <%= link_to 'Log in', users_login_model_box_path, remote: true, id: 'showModalBtn', class: 'custom_button custom_success_btn sigin-out-block-btn' %>
-          <%= link_to 'Sign up', users_sign_up_model_box_path, remote: true, id: 'showModalBtn', class: 'custom_button custom_info_btn sigin-out-block-btn' %>
-        <% end %>
-      </div>
+    <div class="hamburger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
     </div>
+    <ul class="nav-links">
+        <div class="navlink-list header-ul-lists">
+          <li><%= nav_link_to 'Home', root_path %></li>
+          <li><%= nav_link_to 'About', about_path %></li>
+        </div>
+        <div class="btn-list header-ul-lists">
+            <% if user_signed_in? %>
+              <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'custom_button custom_danger_btn sigin-out-block-btn' %></li>
+            <% else %>
+              <li><%= link_to 'Log in', users_login_model_box_path, remote: true, id: 'showModalBtn', class: 'custom_button custom_success_btn sigin-out-block-btn' %></li>
+              <li><%= link_to 'Sign up', users_sign_up_model_box_path, remote: true, id: 'showModalBtn', class: 'custom_button custom_info_btn sigin-out-block-btn' %></li>
+            <% end %>
+        </div>
+    </ul>
 </nav>
+
+<script>
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
+const links = document.querySelectorAll(".nav-links li");
+
+hamburger.addEventListener('click', ()=>{
+   //Animate Links
+    navLinks.classList.toggle("open");
+    links.forEach(link => {
+        link.classList.toggle("fade");
+    });
+
+    //Hamburger Animation
+    hamburger.classList.toggle("toggle");
+});
+</script>

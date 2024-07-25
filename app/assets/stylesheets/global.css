@@ -22,6 +22,10 @@
     color: var(--global-color-8);
 }
 
+body{
+    overflow-x: hidden;
+}
+
 .main-body-wrapper{
     min-height: 100vh;
 }
