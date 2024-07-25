@@ -1,6 +1,6 @@
 <nav class='kae-nav-bar'>
     <div class="logo">
-        <img src="" alt="Logo Image">
+        <img src="<%= asset_path( 'logo.png' ) %>" alt="Logo Image">
     </div>
     <div class="hamburger">
         <div class="line1"></div>
@@ -13,22 +13,22 @@
           <li><%= nav_link_to 'About', about_path %></li>
         </div>
         <div class="btn-list header-ul-lists">
-            <% if user_signed_in? %>
-              <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'custom_button custom_danger_btn sigin-out-block-btn' %></li>
-            <% else %>
-              <li><%= link_to 'Log in', users_login_model_box_path, remote: true, id: 'showModalBtn', class: 'custom_button custom_success_btn sigin-out-block-btn' %></li>
-              <li><%= link_to 'Sign up', users_sign_up_model_box_path, remote: true, id: 'showModalBtn', class: 'custom_button custom_info_btn sigin-out-block-btn' %></li>
-            <% end %>
+          <% if user_signed_in? %>
+            <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'custom_button custom_danger_btn sigin-out-block-btn' %></li>
+          <% else %>
+            <li><%= link_to 'Log in', users_login_model_box_path, remote: true, id: 'showModalBtn', class: 'custom_button custom_success_btn sigin-out-block-btn' %></li>
+            <li><%= link_to 'Sign up', users_sign_up_model_box_path, remote: true, id: 'showModalBtn', class: 'custom_button custom_info_btn sigin-out-block-btn' %></li>
+          <% end %>
         </div>
     </ul>
 </nav>
 
 <script>
-const hamburger = document.querySelector(".hamburger");
+const hamburger_menu = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
-const links = document.querySelectorAll(".nav-links li");
+const links = document.querySelectorAll(".nav-links .header-ul-lists li");
 
-hamburger.addEventListener('click', ()=>{
+hamburger_menu.addEventListener('click', ()=>{
    //Animate Links
     navLinks.classList.toggle("open");
     links.forEach(link => {
@@ -36,6 +36,6 @@ hamburger.addEventListener('click', ()=>{
     });
 
     //Hamburger Animation
-    hamburger.classList.toggle("toggle");
+    hamburger_menu.classList.toggle("toggle");
 });
 </script>

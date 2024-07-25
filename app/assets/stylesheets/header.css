@@ -4,11 +4,12 @@
 .kae-nav-bar{
   height: 6rem;
   width: 100vw;
-  background-color: #131418;
+  background-color: var(--global-color-9);
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
   display: flex;
   position: fixed;
   z-index: 10;
+  color: var(--global-color-7);
 }
 
 .header-ul-lists{
@@ -38,52 +39,18 @@
 .nav-links li a{
   text-decoration: none;
   margin: 0 0.7vw;
+  color: var(--global-color-7);
 }
-.nav-links li a:hover {
-  color: #61DAFB;
-}
+
 .nav-links li {
   position: relative;
-}
-
-/*Styling Buttons*/
-.login-button{
-  background-color: transparent;
-  border: 1.5px solid #f2f5f7;
-  border-radius: 2em;
-  padding: 0.6rem 0.8rem;
-  margin-left: 2vw;
-  font-size: 1rem;
-  cursor: pointer;
-
-}
-.login-button:hover {
-  color: #131418;
-  background-color: #f2f5f7;
-  border:1.5px solid #f2f5f7;
-  transition: all ease-in-out 350ms;
-}
-.join-button{
-  color: #131418;
-  background-color: #61DAFB;
-  border: 1.5px solid #61DAFB;
-  border-radius: 2em;
-  padding: 0.6rem 0.8rem;
-  font-size: 1rem;
-  cursor: pointer;
-}
-.join-button:hover {
-  color: #f2f5f7;
-  background-color: transparent;
-  border:1.5px solid #f2f5f7;
-  transition: all ease-in-out 350ms;
 }
 
 /*Styling Hamburger Icon*/
 .hamburger div{
   width: 30px;
   height:3px;
-  background: #f2f5f7;
+  background: var(--global-color-7);
   margin: 5px;
   transition: all 0.3s ease;
 }
@@ -115,13 +82,14 @@
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
+    color: var(--global-color-7);
   }
   .navlink-list li{
     margin-top: 20px;
   }
   .nav-links{
       position: fixed;
-      background: #131418;
+      background: var(--global-color-9);
       height: 100vh;
       width: 100%;
       flex-direction: column;
@@ -180,29 +148,30 @@
 /* ------------------------- */
 
 /* NAVIGATION */
-.nav-links li a{
+.nav-links .navlink-list li a{
   display: inline-block;
   display: block;
   text-decoration: none;
   text-transform: uppercase;
+  padding: 15px;
 }
 
-.nav-links li a,
-.nav-links li a:after,
-.nav-links li a:before {
+.nav-links .navlink-list li a,
+.nav-links .navlink-list li a:after,
+.nav-links .navlink-list li a:before {
   transition: all .5s;
 }
-.nav-links li a:hover {
+.nav-links .navlink-list li a:hover {
   color: var(--global-color-0);
 }
 
 /* Circle */
-.nav-links li a {
+.nav-links .navlink-list li a {
   position: relative;
   overflow: hidden;
   z-index: 1;
 }
-.nav-links li a:after {
+.nav-links .navlink-list li a:after {
   display: block;
   position: absolute;
   margin: 0;
@@ -217,7 +186,7 @@
   border-radius: 50%;
   background: transparent;
 }
-.nav-links li a:hover:after {
+.nav-links .navlink-list li a:hover:after {
   -webkit-animation: circle 1.5s ease-in forwards;
 }
 
@@ -232,7 +201,7 @@
     margin: auto;
     height: 1px;
     z-index: -1;
-    background: #eee;
+    background: var(--global-color-10);
     border-radius: 100%;
   }
   100% {
