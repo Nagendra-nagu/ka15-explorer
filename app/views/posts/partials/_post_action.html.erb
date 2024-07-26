@@ -1,5 +1,5 @@
-<%= form_with(model: @post, local: true, html: { class: "", multipart: true }) do |form| %>
-  <div>
+<%= form_with(model: @post, local: true, html: { class: "main_cu_container", multipart: true }) do |form| %>
+  <div >
     <div class="image-upload-container content_img">
       <img id="img-preview" src="<%= @url || asset_path('no-image.jpg') %>" alt="Logo Image">
       <div class="img-text">Click to Change Image</div>
@@ -33,6 +33,18 @@
       <%= form.text_area :body %>
     </div>
     <br/>
+    <div class="input-box">
+      <%= form.label :location, class: "details" %>
+      <%= form.text_field :location %>
+    </div>
+    <br/>
+    <% if @show_pos %>
+      <div class="input-box">
+        <%= form.label :position, class: "details" %>
+        <%= form.text_field :position %>
+      </div>
+      <br/>
+    <% end %>
     <div class="status">
       <%= form.label :status, class: "details" %>
       <%= form.select :status, options_for_select([

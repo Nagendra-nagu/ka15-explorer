@@ -11,6 +11,7 @@ class Post < ApplicationRecord
   
     validates :title, presence: true
     validates :body, presence: true
+    validates :position, presence: true, numericality: { only_integer: true }, uniqueness: true
 
     enum status: { draft: 1, published: 2, archived: 3 }
 end

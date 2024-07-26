@@ -28,7 +28,7 @@ form .user-details {
   font-size: 18px;
   /* margin-bottom: 5px; */
 }
-input,
+.main_cu_container input,
 select, textarea{
   /* border-bottom-width: 2px; */
   border-radius: 5px;

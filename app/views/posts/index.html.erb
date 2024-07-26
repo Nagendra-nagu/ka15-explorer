@@ -44,7 +44,7 @@
                     <td data-label="Comments">0</td>
                     <td data-label="Link"><img id = "uploaded_image" src="<%= url %>"/></td>
                     <td data-label="Link">
-                        <%= link_to post_model_box_posts_path(id: post, title: "Update Post"), remote: true, id: 'showModalBtn' do %>
+                        <%= link_to post_model_box_posts_path(id: post, title: "Update Post"), remote: true, id: 'showModalBtn', class: "mr-2" do %>
                             <i class="fa-solid fa-pen-to-square text-primary"></i>
                         <% end %>
 

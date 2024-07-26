@@ -8,6 +8,8 @@ class CreatePost
       if post.status == "published"
         post.published_at = Time.zone.now
       end
+      last_pos = Post.order(position: :asc).last&.position
+      post.position = last_pos.to_i + 1
       post.save
       context[:post] = post
       context.message = "Operation succeeded"

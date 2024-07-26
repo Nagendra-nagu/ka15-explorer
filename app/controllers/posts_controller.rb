@@ -19,6 +19,7 @@ class PostsController < ApplicationController
 
     def post_model_box
       @post = params["id"].present? ?Post.find(params["id"]) : Post.new
+      @show_pos = params["id"].present? ? true : false
       image = @post.attachments.last
       @url = nil
       if image.present? && image.file.attached?
@@ -65,7 +66,7 @@ class PostsController < ApplicationController
     end
   
     def post_params
-      params.require(:post).permit(:title, :body, :status, :user_id, tag_ids: [], category_ids: [], attachments_attributes: [:id, :file, :_destroy])
+      params.require(:post).permit(:title, :body, :status, :user_id, :position, :location, tag_ids: [], category_ids: [], attachments_attributes: [:id, :file, :_destroy])
     end
 end
   
