@@ -2,7 +2,7 @@
     <div class="table-actions">
         <div class="div_left_align"></div>
         <div class="div_right_align">
-            <%= link_to 'Create Post', create_model_box_posts_path, remote: true, id: 'showModalBtn', class: 'custom_button custom_success_btn sigin-out-block-btn' %>
+            <%= link_to 'Create Post', post_model_box_posts_path(title: "Create Post"), remote: true, id: 'showModalBtn', class: 'custom_button custom_success_btn sigin-out-block-btn' %>
         </div>
     </div>
     <table>
@@ -19,6 +19,7 @@
                 <th>Likes</th>
                 <th>Comments</th>
                 <th>Link</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -42,6 +43,15 @@
                     <td data-label="Likes">0</td>
                     <td data-label="Comments">0</td>
                     <td data-label="Link"><img id = "uploaded_image" src="<%= url %>"/></td>
+                    <td data-label="Link">
+                        <%= link_to post_model_box_posts_path(id: post, title: "Update Post"), remote: true, id: 'showModalBtn' do %>
+                            <i class="fa-solid fa-pen-to-square text-primary"></i>
+                        <% end %>
+
+                        <%= link_to post_path(post),  method: :delete, data: { confirm: 'Are you sure?' } do %>
+                            <i class="fa-solid fa-trash text-danger"></i>
+                        <% end %>
+                    </td>
                 </tr>
             <% end %>
         </tbody>

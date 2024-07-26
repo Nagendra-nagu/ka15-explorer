@@ -1,5 +1,5 @@
 $('#myModal').modal('hide');
-document.getElementById('modalContainer').innerHTML = '<%= j render partial: "layouts/show_modal", locals: { modal_title: "Login", view_path: "posts/partials/create_post" } %>';
+document.getElementById('modalContainer').innerHTML = '<%= j render partial: "layouts/show_modal", locals: { modal_title: @title, view_path: "posts/partials/post_action" } %>';
 $('#myModal').modal('show');
 
 var fileInput = document.getElementById('post_attachments_attributes_0_file');

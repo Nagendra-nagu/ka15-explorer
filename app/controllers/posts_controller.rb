@@ -17,10 +17,16 @@ class PostsController < ApplicationController
       @post = Post.new
     end
 
-    def create_model_box
-      @post = Post.new
+    def post_model_box
+      @post = params["id"].present? ?Post.find(params["id"]) : Post.new
+      image = @post.attachments.last
+      @url = nil
+      if image.present? && image.file.attached?
+          @url = rails_blob_url(image.file, only_path: true)
+      end
+      @title = params["title"]
       respond_to do |format|
-        format.js { render 'create_model_box' } # Ensure this file exists
+        format.js { render 'post_model_box' }
       end
     end
   
@@ -29,7 +35,7 @@ class PostsController < ApplicationController
       @post = result[:post]
       if !result.failure?
         respond_to do |format|
-          format.js { render 'create_model_box' } # Ensure this file exists
+          format.js { render 'create_model_box' }
         end
       end
     end
@@ -38,10 +44,9 @@ class PostsController < ApplicationController
     end
   
     def update
-      if @post.update(post_params)
-        redirect_to @post, notice: 'Post was successfully updated.'
-      else
-        render :edit
+      @post.update(post_params)
+      respond_to do |format|
+        format.js { render 'create_model_box' }
       end
     end
   

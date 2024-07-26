@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     collection do
-      get 'create_model_box'
+      get 'post_model_box'
       get 'open_posts'
     end
   end

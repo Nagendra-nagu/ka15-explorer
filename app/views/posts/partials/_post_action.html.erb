@@ -1,7 +1,7 @@
 <%= form_with(model: @post, local: true, html: { class: "d-flex justify-content-center flex-column", multipart: true }) do |form| %>
   <div class="field form-group">
     <div class="image-upload-container">
-      <img id="img-preview" src="<%= asset_path('no-image.jpg') %>" alt="Logo Image">
+      <img id="img-preview" src="<%= @url || asset_path('no-image.jpg') %>" alt="Logo Image">
     </div>
 
     <%= form.label :attachments %><br/>
@@ -23,28 +23,28 @@
       <% end %>
     </div>
 
-  <div class="field form-group">
-    <%= form.label :title %><br/>
-    <%= form.text_field :title, class: "w-75" %>
-  </div>
+    <div class="field form-group">
+      <%= form.label :title %><br/>
+      <%= form.text_field :title, class: "w-75" %>
+    </div>
 
-  <div class="field form-group">
-    <%= form.label :body %><br/>
-    <%= form.text_area :body, class: "w-75" %>
-  </div>
+    <div class="field form-group">
+      <%= form.label :body %><br/>
+      <%= form.text_area :body, class: "w-75" %>
+    </div>
 
-  <div class="field form-group">
-    <%= form.label :status %><br/>
-    <%= form.select :status, options_for_select([
-        ['Draft', "draft"],
-        ['Published', "published"],
-        ['Archived', 'archived']
-    ], @post.status), {}, class: 'form-select w-75', aria: { label: 'Default select example' } %>
-  </div>
+    <div class="field form-group">
+      <%= form.label :status %><br/>
+      <%= form.select :status, options_for_select([
+          ['Draft', "draft"],
+          ['Published', "published"],
+          ['Archived', 'archived']
+      ], @post.status), {}, class: 'form-select w-75', aria: { label: 'Default select example' } %>
+    </div>
 
-  <%= form.hidden_field :user_id, value: current_user.id %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
 
-  <div class="actions field form-group text-center">
-    <%= form.submit "Create Post", class: "btn btn-success" %>
-  </div>
-<% end %>
+    <div class="actions field form-group text-center">
+      <%= form.submit @post.new_record? ? "Create Post" : "Update Post", class: "btn btn-success" %>
+    </div>
+  <% end %>
