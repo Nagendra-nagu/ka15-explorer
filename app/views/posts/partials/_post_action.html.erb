@@ -1,14 +1,14 @@
-<%= form_with(model: @post, local: true, html: { class: "d-flex justify-content-center flex-column", multipart: true }) do |form| %>
-  <div class="field form-group">
-    <div class="image-upload-container">
+<%= form_with(model: @post, local: true, html: { class: "", multipart: true }) do |form| %>
+  <div>
+    <div class="image-upload-container content_img">
       <img id="img-preview" src="<%= @url || asset_path('no-image.jpg') %>" alt="Logo Image">
+      <div class="img-text">Click to Change Image</div>
     </div>
 
-    <%= form.label :attachments %><br/>
-    <div id="attachments">
-      <%= form.fields_for :attachments do |attachment_form| %>
+    <div id="attachments" class ="form-group d-none">
+      <%= form.fields_for :attachments, class: "input-group" do |attachment_form| %>
         <div class="attachment-fields">
-          <%= attachment_form.file_field :file, class: 'attachment-file-input form-control' %>
+          <%= attachment_form.file_field :file, class: 'attachment-file-input' %>
           <%= attachment_form.check_box :_destroy %>
           <%= attachment_form.label :_destroy, 'Remove file' %>
         </div>
@@ -17,34 +17,34 @@
       <% if @post.attachments.empty? %>
         <div class="attachment-fields">
           <%= form.fields_for :attachments, @post.attachments.build do |attachment_form| %>
-            <%= attachment_form.file_field :file, class: 'attachment-file-input form-control' %>
+            <%= attachment_form.file_field :file, class: 'attachment-file-input' %>
           <% end %>
         </div>
       <% end %>
     </div>
-
-    <div class="field form-group">
-      <%= form.label :title %><br/>
-      <%= form.text_field :title, class: "w-75" %>
+    <br/>
+    <div class="input-box">
+      <%= form.label :title, class: "details" %>
+      <%= form.text_field :title %>
     </div>
-
-    <div class="field form-group">
-      <%= form.label :body %><br/>
-      <%= form.text_area :body, class: "w-75" %>
+    <br/>
+    <div class="input-box">
+      <%= form.label :body, class: "details" %>
+      <%= form.text_area :body %>
     </div>
-
-    <div class="field form-group">
-      <%= form.label :status %><br/>
+    <br/>
+    <div class="status">
+      <%= form.label :status, class: "details" %>
       <%= form.select :status, options_for_select([
           ['Draft', "draft"],
           ['Published', "published"],
           ['Archived', 'archived']
-      ], @post.status), {}, class: 'form-select w-75', aria: { label: 'Default select example' } %>
+      ], @post.status), {}, class: 'form-select-custom', aria: { label: 'Default select example' } %>
     </div>
-
+    <br/>
     <%= form.hidden_field :user_id, value: current_user.id %>
 
-    <div class="actions field form-group text-center">
+    <div class="actions field text-center mt-4">
       <%= form.submit @post.new_record? ? "Create Post" : "Update Post", class: "btn btn-success" %>
     </div>
   <% end %>

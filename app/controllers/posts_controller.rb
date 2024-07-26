@@ -44,9 +44,12 @@ class PostsController < ApplicationController
     end
   
     def update
-      @post.update(post_params)
-      respond_to do |format|
-        format.js { render 'create_model_box' }
+      result = UpdatePost.call(post: @post, post_params: post_params, current_user: current_user)
+      @post = result[:post]
+      if !result.failure?
+        respond_to do |format|
+          format.js { render 'create_model_box' }
+        end
       end
     end
   

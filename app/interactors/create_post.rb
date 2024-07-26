@@ -12,7 +12,6 @@ class CreatePost
       context[:post] = post
       context.message = "Operation succeeded"
     rescue => exception
-      byebug
       context.fail!(error: exception.message)
     end
   end

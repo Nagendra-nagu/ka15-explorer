@@ -11,3 +11,7 @@ fileInput.addEventListener("change", (e) => {
         imagePreview.src = src;
     }
 });
+
+imagePreview.addEventListener('click', () => {
+  fileInput.click();
+});
