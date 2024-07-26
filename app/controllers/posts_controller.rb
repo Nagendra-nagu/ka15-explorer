@@ -25,9 +25,9 @@ class PostsController < ApplicationController
     end
   
     def create
-      @post = Post.new(post_params)
-      @post.user = current_user # Assuming you have a current_user method
-      if @post.save
+      result = CreatePost.call(post_params: post_params, current_user: current_user)
+      @post = result[:post]
+      if !result.failure?
         respond_to do |format|
           format.js { render 'create_model_box' } # Ensure this file exists
         end

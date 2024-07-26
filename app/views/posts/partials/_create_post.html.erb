@@ -36,9 +36,9 @@
   <div class="field form-group">
     <%= form.label :status %><br/>
     <%= form.select :status, options_for_select([
-        ['Draft', 1],
-        ['Published', 2],
-        ['Archived', 3]
+        ['Draft', "draft"],
+        ['Published', "published"],
+        ['Archived', 'archived']
     ], @post.status), {}, class: 'form-select w-75', aria: { label: 'Default select example' } %>
   </div>
 

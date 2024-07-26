@@ -62,6 +62,9 @@ gem 'paperclip', '~> 6.1'
 # to store file in s3
 gem 'aws-sdk-s3', '~> 1.156'
 
+# writing busness logics
+gem 'interactor-rails', '~> 2.1', '>= 2.1.1'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
