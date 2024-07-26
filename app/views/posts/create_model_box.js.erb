@@ -1,0 +1,13 @@
+$('#myModal').modal('hide');
+document.getElementById('modalContainer').innerHTML = '<%= j render partial: "layouts/show_modal", locals: { modal_title: "Login", view_path: "posts/partials/create_post" } %>';
+$('#myModal').modal('show');
+
+var fileInput = document.getElementById('post_attachments_attributes_0_file');
+var imagePreview = document.getElementById("img-preview");
+fileInput.addEventListener("change", (e) => {
+    console.log("hiii")
+    if (e.target.files.length) {
+        let src = URL.createObjectURL(e.target.files[0]);
+        imagePreview.src = src;
+    }
+});

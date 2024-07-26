@@ -1,4 +1,19 @@
-<footer>
-  <p>&copy; <%= Time.current.year %> Your Application Name</p>
-  <!-- Add other footer content as needed -->
+ <footer>
+        <div class="footer-links">
+            <%= nav_link_to 'Home', root_path %>
+            <%= nav_link_to 'About', about_path %>
+        </div>
+        <div class="footer-social">
+            <a href="#"><ion-icon name="logo-facebook" class="icon" alt="Facebook"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-twitter" class="icon" alt="Twitter"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-linkedin" class="icon" alt="LinkedIn"></ion-icon></a>
+        </div>
+        <div class="footer-contact">
+            <p>Email: sminagendra@gmail.com</p>
+            <p>Phone: +91 9019683872</p>
+        </div>
+        <div class="blog-signup">
+            <input type="email" placeholder="Subscribe to our Blogs">
+            <button class="custom_button custom_info_btn sigin-out-block-btn">Subscribe</button>
+        </div>
 </footer>

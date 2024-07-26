@@ -8,4 +8,9 @@ module ApplicationHelper
       class_name = current_page?(path) ? 'nav-item selected-item' : 'nav-item'
       link_to name, path, options.merge(class: class_name)
     end
+
+    def format_date(unformated_date)
+      unformated_date&.strftime("%d %B %Y")
+    end
+
   end  

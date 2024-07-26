@@ -1,8 +1,12 @@
 class PostsController < ApplicationController
     before_action :set_post, only: %i[show edit update destroy]
-    before_action :authenticate_user!, except: [:index, :show]
+    before_action :authenticate_user!, except: [:open_posts, :show]
   
     def index
+      @posts = Post.all
+    end
+
+    def open_posts
       @posts = Post.all
     end
   
@@ -12,15 +16,21 @@ class PostsController < ApplicationController
     def new
       @post = Post.new
     end
+
+    def create_model_box
+      @post = Post.new
+      respond_to do |format|
+        format.js { render 'create_model_box' } # Ensure this file exists
+      end
+    end
   
     def create
       @post = Post.new(post_params)
       @post.user = current_user # Assuming you have a current_user method
-  
       if @post.save
-        redirect_to @post, notice: 'Post was successfully created.'
-      else
-        render :new
+        respond_to do |format|
+          format.js { render 'create_model_box' } # Ensure this file exists
+        end
       end
     end
   
@@ -43,11 +53,11 @@ class PostsController < ApplicationController
     private
   
     def set_post
-      @post = Post.find(params[:id])
+      @post = Post.find_by(id: params[:id])
     end
   
     def post_params
-      params.require(:post).permit(:title, :body, :published_at, :status, tag_ids: [], category_ids: [])
+      params.require(:post).permit(:title, :body, :status, :user_id, tag_ids: [], category_ids: [], attachments_attributes: [:id, :file, :_destroy])
     end
 end
   

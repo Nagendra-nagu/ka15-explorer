@@ -1,0 +1,60 @@
+<div class="more_optionns">
+    <div class="more_options_options">
+        <b class="more_options_title">Posts</b>
+        <div class="more_options_items">
+        <%= link_to posts_path, class: 'more_option_item' do %>
+        <i class="fa-solid fa-blog"></i>
+        <% end %>
+        </div>
+    </div>
+    <div class="more_options_options">
+        <b class="more_options_title">Comments</b>
+        <div class="more_options_items">
+            <i class="fa-regular fa-comment"></i>
+        </div>
+    </div>
+    <div class="more_options_options">
+        <b class="more_options_title">Subscribers</b>
+        <div class="more_options_items">
+            <i class="fa-solid fa-envelopes-bulk"></i>
+        </div>
+    </div>
+    <div class="more_options_options">
+        <b class="more_options_title">Users</b>
+        <div class="more_options_items">
+            <i class="fa-solid fa-users"></i>
+        </div>
+    </div>
+</div>
+
+<style>
+    .more_optionns{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .more_options_options{
+        background-color: #FAF9F6;
+        box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
+        margin: 5px;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+    }
+    .more_option_item{
+        font-size: 25px;
+        margin: 10px;
+        color: #131516;
+        cursor: pointer;
+    }
+
+    .more_option_item i:hover{
+        color: #be7c68;
+    }
+
+    .more_options_title{
+        color: #be7c68;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+</style>

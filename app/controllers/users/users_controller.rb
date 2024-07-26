@@ -19,5 +19,11 @@ module Users
                 format.js { render 'users/forgot_password_modal_box' }
             end
         end
+
+        def get_more_options
+            respond_to do |format|
+                format.js   { render 'users/get_more_options' } # For JS requests
+            end
+        end
     end
 end

@@ -1,0 +1,283 @@
+@import 'global';
+.image-upload-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#img-preview{
+  width: 50%;
+  height: auto;
+}
+
+.table-actions{
+  display: flex;
+  justify-content: space-between;
+}
+
+::-webkit-scrollbar {
+  height: 6px;
+  width: 2px;
+  background: var(--global-color-3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--global-color-9);
+  -webkit-box-shadow: 0px 1px 2px var(--primary);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--global-color-7);
+}
+
+
+
+.table_link{
+  text-decoration:none !important;
+  min-width: fit-content;
+  width: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  font-size:16px;
+  outline:none !important;
+}
+
+.padding_1{
+  padding:1rem;
+}
+
+.padding_2{
+  padding:2rem;
+}
+
+.padding_3{
+  padding:3rem;
+}
+
+.padding_4{
+  padding:4rem;
+}
+
+.relative{
+  position:relative;
+}
+
+@media (max-width:720px){
+  .flex{
+      flex-wrap:wrap;
+  }
+  
+  .padding_1, .padding_2, .padding_3, .padding_4{
+      padding:1rem;
+  }
+  
+  a{
+      font-size:12px;
+  }
+}
+
+/*SMALL SCREEN*/
+@media (max-width:300px){
+  .padding_1, .padding_2, .padding_3, .padding_4{
+      padding:0.5rem;
+  }
+  
+  a{
+      font-size:10px;
+  }
+  
+}
+
+
+.table-continer{
+  width:100%;
+  overflow-x:auto;
+  padding:1rem;
+}
+
+table{
+  margin:auto;
+  width:100%;
+  overflow:hidden;
+  background-color:var(--global-color-9);
+  border-radius:10px;
+  position:relative;
+  border-collapse:collapse;
+  z-index:1;
+  color:var(--global-color-3);
+  white-space:nowrap;
+}
+
+tbody tr:not(:last-child){
+  border-bottom:1px solid rgba(1,1,1,0.2);
+}
+
+th, td{
+  padding:1rem;
+  gap:10px;
+  position:relative;
+  cursor:default;
+}
+
+td:last-child:hover a{
+  color:var(--global-color-8);
+}
+
+thead{
+  background-color:var(--primary_lite);
+}
+
+th{
+  text-transform:uppercase;
+}
+
+#uploaded_image{
+  width: 45px;
+  height: 100%;
+}
+
+td img{
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  overflow:hidden;   
+  margin-right:5px;
+}
+
+tr td:last-child, tr td:nth-last-child(2), tr td:nth-last-child(3), tr td:nth-last-child(4), tr td:nth-last-child(6), tr td:nth-last-child(7), tr td:nth-last-child(8), tr td:nth-last-child(9){
+  text-align:center;
+}
+
+tr:hover{
+  background-color:#f9f9f9;
+}
+
+td:last-child:hover:after{
+  position:absolute;
+  width:fit-content;
+  left:-10%;
+  top:-40%;
+  transform:translate(0%, 50%);
+  font-size:12px;
+  color:var(--global-color-10);
+  background-color:var(--global-color-7);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  border-radius:5px;
+  padding:2px 4px;
+  z-index:9;
+}
+
+table a{
+  color:var(--global-color-3);
+}
+
+/*ICONS*/
+.fa-arrow-up{
+  color:var(--text-success);
+}
+
+.fa-arrow-down{
+  color:var(--text-danger);
+}
+
+.fa-mars{
+  color:var(--text-info);
+}
+
+/* .fa-venus{
+  color:var(--pink);
+} */
+
+.active, .inactive{
+  padding:0rem 0.8rem;
+  border-radius:40px;
+}
+
+.active{   
+  background-color:#eef2fe;
+  color:var(--primary);
+}
+
+.inactive{   
+  background-color:#fff0ee;
+  color:var(--text-danger);
+}
+
+/*PROGRESS BAR*/
+.progress{
+  display:inline-block;
+  background-color:var(--global-color-10);
+  border-radius:40px;
+  width:60px;
+  height:10px;
+  position:relative;
+  overflow:hidden;
+}
+
+.progress em{
+  position:absolute;
+  left:0;
+  top:0;
+  height:10px;
+  background-color:var(--primary);
+}
+
+@media (max-width:720px){
+  .table-continer{
+      background:var(--primary);
+  }
+  
+  table{
+      background-color:transparent;
+  }
+  .table-continer{
+      overflow-y:auto;
+      height:100%;
+  }
+  
+  table thead{
+      display:none;
+  }
+  
+  table td{
+      width:100%;
+      display:block;
+      text-align:right;
+  }
+  
+  table td:not(:last-child){
+      border-bottom:1px solid rgba(1,1,1,0.2);
+  }
+  
+  table td:before{
+      content:attr(data-label);
+      z-index:1;
+      float:left;
+      color:var(--global-color-8);
+  }
+  
+  tr{
+      background-color:var(--global-color-9);
+      border-radius:5px;
+      display:block;
+      margin:0.5rem 0;
+  }
+  
+  tbody tr{
+      border-bottom:none;
+  }
+  
+  tr td{
+      text-align:right !important;
+  }
+  
+  td:last-child:hover:after{
+      left:auto;
+      right:10%;
+      transform:translate(50%, 50%);
+  }
+  
+  th, td{
+      padding:0.5rem 1rem;
+  }
+}

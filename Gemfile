@@ -53,7 +53,14 @@ gem 'pg', '~> 1.3.0'
 # sheduling jobs
 gem 'whenever', require: false
 
+# js support(hotwire)
 gem 'webpacker', '~> 5.4'
+
+# file storing
+gem 'paperclip', '~> 6.1'
+
+# to store file in s3
+gem 'aws-sdk-s3', '~> 1.156'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"

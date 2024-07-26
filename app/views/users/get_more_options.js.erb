@@ -1,0 +1,3 @@
+$('#myModal').modal('hide');
+document.getElementById('modalContainer').innerHTML = '<%= j render partial: "layouts/show_modal", locals: { modal_title: "More Options", view_path: "users/partials/more_options" } %>';
+$('#myModal').modal('show');
