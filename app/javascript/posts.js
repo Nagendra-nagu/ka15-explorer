@@ -18,14 +18,11 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       loop: true,
       breakpoints: {
-        // 1500: {
-        //   slidesPerView: 2
-        // },
         // 1024: {
         //   slidesPerView: 2
         // },
         // 768: {
-        //   slidesPerView: 2
+        //   slidesPerView: 1
         // },
         // 640: {
         //   slidesPerView: 1

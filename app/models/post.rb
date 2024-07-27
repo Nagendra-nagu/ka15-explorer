@@ -15,7 +15,7 @@ class Post < ApplicationRecord
 
     enum status: { draft: 1, published: 2, archived: 3 }
 
-    def image_url
+  def image_url
         image = self.attachments.last
         if image.present? && image.file.attached?
           Rails.application.routes.url_helpers.rails_representation_url(image.file, only_path: true)
