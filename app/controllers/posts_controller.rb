@@ -20,11 +20,7 @@ class PostsController < ApplicationController
     def post_model_box
       @post = params["id"].present? ?Post.find(params["id"]) : Post.new
       @show_pos = params["id"].present? ? true : false
-      image = @post.attachments.last
-      @url = nil
-      if image.present? && image.file.attached?
-          @url = rails_blob_url(image.file, only_path: true)
-      end
+      @url = @post.image_url
       @title = params["title"]
       respond_to do |format|
         format.js { render 'post_model_box' }

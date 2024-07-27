@@ -1,1 +1,95 @@
-this is open posts
+<%
+  grid_pattren = {
+    grid1: {col: "1/2", row_diff: 2, row_inc: 0, color: "red"},
+    grid2: {col: "2/3", row_diff: 1, row_inc: 0, color: "green"},
+    grid3: {col: "2/3", row_diff: 1, row_inc: 1, color: "blue"},
+    grid4: {col: "1/2", row_diff: 1, row_inc: 1, color: "yellow"},
+    grid5: {col: "1/2", row_diff: 1, row_inc: 1, color: "black"},
+    grid6: {col: "2/3", row_diff: 2, row_inc: -1, color: "pink"},
+  }
+  height = 1
+  max_height = 6
+  row_count = 1
+%>
+
+<div class="home-main-container">
+    <div class="home-main-section-1">
+       <section class="creative-carousal--hero">
+		<div class="carousel-slider swiper-container-horizontal">
+			<div class="swiper-wrapper">
+                <% @posts.each do |post| %>
+                    <% url = post.image_url %>
+                	<div class="swiper-slide" data-background="<%= url %>" style="background-image: url(<%= url %>);">
+					    <div class="inner"><h2><%= post.title&.capitalize %></h2> 
+						    <a href="#">DISCOVER CASE</a> 
+					    </div>
+				    </div>
+                <% end %>
+			</div>
+			<!-- End Of Swiper -->
+			<div class="slide-progress"> 
+				<span>01</span>
+				<div class="swiper-pagination swiper-pagination-progressbar"><span class="swiper-pagination-progressbar-fill"></span></div>
+				<span><%= @posts.count %></span> 
+			</div>
+			<!-- end of progress -->
+			<div class="swiper-button-prev">PREV</div>
+			<!-- end button-prev -->
+			<div class="swiper-button-next">NEXT</div>
+			<!-- end button-next -->
+			</div>
+		</section>
+    </div>
+    <div class="home-main-section-2">
+    <% @posts.limit(6).each do |post| %>
+        <% 
+          key = "grid#{height}"
+          value = grid_pattren[key.to_sym]
+          row_diff = value[:row_diff]
+          col = value[:col]
+          color = value[:color]
+          row_count += value[:row_inc]
+        %>
+        <div class="section-2-images image-<%= height %>" style="grid-column: <%= col %>; grid-row: <%= "#{row_count}/#{(row_diff + row_count)}" %>;">
+               <img src="<%= post.image_url %>" />
+        </div>
+        <% 
+           height += 1
+           if height > max_height
+            height = 1
+            row_count += 2
+           end
+        %>
+    <% end %>
+</div>
+</div>
+
+<%= javascript_include_tag 'posts' %>
+
+<style>
+.home-main-section-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
+    grid-auto-rows: minmax(130px, auto); /* Minimum row height of 130px */
+    gap: 0; /* No gap between grid items */
+    margin: 0 auto;
+}
+
+.section-2-images {
+    width: 25vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Hide overflow content */
+    position: relative; /* To ensure correct positioning */
+    min-height: 130px; /* Minimum height */
+}
+
+.section-2-images img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* Cover the area of the container */
+    height: -webkit-fill-available;
+}
+</style>
