@@ -96,6 +96,6 @@ Rails.application.configure do
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 
   # Use credentials
-  config.secret_key_base = Rails.application.credentials.secret_key_base
+  config.secret_key_base = Rails.application.credentials.dig(Rails.env.to_s, :secret_key_base)
 
 end
