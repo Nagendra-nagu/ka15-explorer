@@ -49,14 +49,28 @@
           row_count += value[:row_inc]
         %>
         <div class="section-2-images" style="grid-column: <%= value[:col] %>; grid-row: <%= "#{row_count}/#{( value[:row_diff] + row_count)}" %>;">
+            <div class="grid-content-container">
+                  <div>
+                   <p class="title-text"><%= post.title %></p>
+                   <p class = "side-title-text">July 24</p>
+                  </div>
+                  <div class="d-flex">
+                     <i class="fa-solid fa-location-dot pr-2"></i><p class="side-title-text"><%= "Banglore" %></p>
+                  </div>
+            </div>
             <div class="grid-image-container">
                <img src="<%= post.image_url %>" />
                <p class="home-img-cat">category</p>
                <a class="image_read_more">Read More</a>
             </div>
-            <div class="grid-content-container">
-               <p class="grid-title"><%= post.title %></p>
-                <p class = "grid-date">July 24</p>
+            <div class="post-action-container">
+                <div class="like-comment-container">
+                    <i class="fa-regular fa-heart text-normal"></i>
+                    <i class="fa-regular fa-comment text-normal"></i>
+                </div>
+                <div class="share-container">
+                    <i class="fa-solid fa-share text-normal"></i>
+                </div>
             </div>
         </div>
         <% 
@@ -72,3 +86,44 @@
 </div>
 
 <%= javascript_include_tag 'posts' %>
+
+<style>
+.post-action-container{
+    display:flex;
+    justify-content: space-between;
+}
+
+.post-action-container, .share-container{
+    margin: 0px 10px 0px 10px;
+}
+.section-2-images{
+    padding-bottom: 35px;
+}
+
+.grid-content-container{
+    display: flex;
+    width: 100%;
+    padding: 0px 10px 0px 10px;
+    justify-content: space-between;
+}
+
+.title-text{
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    -webkit-transition: background-color 2s ease-out;
+    margin: 0;
+}
+
+.side-title-text{
+    font-size: 13px;
+    font-weight: 200;
+    cursor: pointer;
+    -webkit-transition: background-color 2s ease-out;
+    margin: 0;
+}
+
+.text-normal{
+    font-size: 20px;
+}
+</style>
